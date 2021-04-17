@@ -37,17 +37,17 @@ class Terrain {
   }
 
   void calculateTerrain() {
-    
-    
-    
+
+
+
     track.fft.forward(track.song.mix);
-    
-    
-    
+
+
+
     flying -= speed;    
     samples = track.getSamples();
-    
-    
+
+
     float yoff = flying;
     for (int y = 0; y < rows; y++) {
       float xoff = 0;
@@ -60,13 +60,26 @@ class Terrain {
   }
 
 
+  void drawGrid() {
+    int rows_local = this.h * 2 / this.scale;
+      for (int y = 0; y < rows_local - 1; y++) {
+      beginShape(QUAD_STRIP);
+      for (int x = 0; x < cols; x++) {
+        vertex(x * scale, y * scale, 1);
+        vertex(x * scale, (y + 1) * scale, 1);
+      }
+      endShape();
+    }
+  }
+
   int r = 0;
   void draw() {
+    track.beat.detect(track.song.mix);
     this.calculateTerrain();
     background(0);
     stroke(255, 10, 186);
     noFill();
-       
+
     translate( width / 2, height / 2 - 100);
     rotateX(PI / 3);
     translate(-this.w / 2, -this.h / 2); 
@@ -79,6 +92,5 @@ class Terrain {
       }
       endShape();
     }
-
   }
 }
