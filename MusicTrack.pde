@@ -15,10 +15,12 @@ class MusicTrack {
     song = minim.loadFile(path, sampleRate);
     this.sampleRate = sampleRate;
     song.loop();
+    song.pause();
     beat = new BeatDetect();
     fft = new FFT(song.bufferSize(), song.sampleRate()); 
   }
   
+
   float[] getSamples() {
     return track.song.mix.toArray();
   }

@@ -35,22 +35,17 @@ class Circle {
 
     beginShape(POINTS);
     for (int i = 0; i < track.song.bufferSize(); i++) {
-
-
-
-
-
       float x2 = r2 * cos(i); 
       float y2 = r2 * sin(i);
       vertex(x2, y2, 1);
     }
-
     endShape();
 
 
     if (r2 > 0 && r2 < 100) {
       r2 += 0.1;
-    } else 
+    } 
+    else 
     {
       if (r2 > 100) {
         r2 *= 0.98;
