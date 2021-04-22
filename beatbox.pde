@@ -20,7 +20,7 @@ void setup() {
   frameRate(60);
   smooth();
 
-  track = new MusicTrack("v_cyberpunk2077.mp3", 2048, new Minim(this));
+  track = new MusicTrack("song.mp3", 2048, new Minim(this));
   
   terrain = new Terrain(20);
   circle = new Circle();
@@ -29,9 +29,9 @@ void setup() {
 
 
 void draw() {
-  
-  
-  System.out.println(state.current);
+  background(0);
+  state.drawControls();
+
   switch(state.current) {
     case 1:
       circle.draw();
@@ -50,15 +50,20 @@ void draw() {
       state.draw();
   }
   
-  state.drawControls();
+
+ 
  
   filter(shift); 
 }
-void mouseWheel() {
-  state.determineNextState(state.BACK);
-}
 
 void mousePressed() {
-  state.determineNextState(state.NEXT);
+
   
+  if(state.mouseIsOverRightBox) {
+    state.determineNextState(state.NEXT);
+  }
+  
+  if(state.mouseIsOverLeftBox) {
+   state.determineNextState(state.BACK);    
+  }
 }

@@ -76,12 +76,12 @@ class Terrain {
   void draw() {
     track.beat.detect(track.song.mix);
     this.calculateTerrain();
-    background(0);
+    
     stroke(255, 10, 186);
     noFill();
 
     translate( width / 2, height / 2 - 100);
-    rotateX(PI / 3);
+    rotateX(radians(70));
     translate(-this.w / 2, -this.h / 2); 
 
     for (int y = 0; y < rows - 1; y++) {

@@ -12,10 +12,9 @@ class LineWaves {
 
     track.beat.detect(track.song.mix);
 
-    translate(0, height/2);   
+    translate(0, height/2);
     rotateX(radians(70));
-    
-    background(0);
+
     
     
     

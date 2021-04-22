@@ -7,8 +7,6 @@ class Circle {
 
     translate(width/2, height/2);
     rotateX(radians(70));
-
-    background(0);
     stroke(255, 10, 186);
     strokeWeight(2);
     fill(0);
