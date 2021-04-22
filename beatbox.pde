@@ -7,6 +7,7 @@ AudioPlayer sample;
 Terrain terrain;
 MusicTrack track;
 Circle circle;
+Box box;
 LineWaves line;
 StateMachine state;
 
@@ -25,6 +26,7 @@ void setup() {
   terrain = new Terrain(20);
   circle = new Circle();
   line = new LineWaves();
+  box = new Box();
 }
 
 
@@ -43,7 +45,7 @@ void draw() {
       line.draw();
       break;
     case 4:
-      state.draw(); //make something cool.
+      box.draw(); //make something cool.
       break;
     case 0:
     default:

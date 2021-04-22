@@ -3,10 +3,6 @@
 
 class LineWaves {
 
-  void setup() {
-    filter(BLUR, 10);  
-  }
-
 
   void draw() {
 
